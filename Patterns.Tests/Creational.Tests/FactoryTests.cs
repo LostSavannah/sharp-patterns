@@ -1,7 +1,7 @@
 using Patterns.Core.Creational.Factory;
 using Patterns.Tests.TestTools;
 
-namespace Patterns.Tests;
+namespace Patterns.Tests.Creational.Tests;
 
 [TestFixture]
 public class FactoryTests

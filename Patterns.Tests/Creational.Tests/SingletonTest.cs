@@ -1,7 +1,7 @@
 using Patterns.Core.Creational.Singleton;
 using Patterns.Tests.TestTools;
 
-namespace Patterns.Tests;
+namespace Patterns.Tests.Creational.Tests;
 
 [TestFixture]
 public class SingletonTests

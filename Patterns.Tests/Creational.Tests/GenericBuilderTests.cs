@@ -2,7 +2,7 @@ using Patterns.Core.Common;
 using Patterns.Core.Creational.Builder;
 using Patterns.Tests.TestTools;
 
-namespace Patterns.Tests;
+namespace Patterns.Tests.Creational.Tests;
 
 [TestFixture]
 public class GenericBuilderTests
@@ -14,12 +14,12 @@ public class GenericBuilderTests
     }
 
     static List<Func<int, int>> mutators = [
-            (n) => n+1, 
-            (n) => n/2, 
-            (n) => n*3, 
-            (n) => n-4, 
-            (n) => n%5,
-            (n) => n == 0? 1:n,  
+            (n) => n + 1,
+        (n) => n / 2,
+        (n) => n * 3,
+        (n) => n - 4,
+        (n) => n % 5,
+        (n) => n == 0 ? 1 : n,
     ];
 
     [Test]
@@ -41,12 +41,13 @@ public class GenericBuilderTests
             .Select(_ => GenericBuilderTests.mutators[random.Next(0, GenericBuilderTests.mutators.Count)])
             .ToList();
 
-        for(int n = 0; n < mutators.Count; n++)
+        for (int n = 0; n < mutators.Count; n++)
         {
             value = mutators[n](value);
         }
 
-        List<Action<Subject>> steps = mutators.Select<Func<int, int>, Action<Subject>>(m => (Subject b) => {
+        List<Action<Subject>> steps = mutators.Select<Func<int, int>, Action<Subject>>(m => (b) =>
+        {
             b.IntProperty = m(b.IntProperty);
         }).ToList();
 
